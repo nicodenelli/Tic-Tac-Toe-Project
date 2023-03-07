@@ -26,6 +26,11 @@ function spaceClicked(event) { // upon start og game I want to add an event list
 // for each square in my boxes array.
 // <- console.log(event.target) <- current event.target to check - when checking this I 
 // can see in the console online that when selecting a square the value it reveals is
-// the coontainer class I created with an id of it's position in the array
+// the container class I created with an id of it's position in the array
+const id = event.target.id //<- applying the event listener
+if(!boxes[id]) { // <- id from my html - checking to make sure the box selected does not contain this id
+    boxes[id] =  activePlayer;
+    event.target.innerText =  activePlayer;
+}
 
 }
