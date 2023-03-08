@@ -15,5 +15,5 @@ HTML, CSS, JAVASCRIPT, Visual Studio Code, and used my mac laptop to access and 
 ## Next Steps
 1) I want to add functionality to the title, to change it's display in the case of a tie as I do this for when there is a win, something simple like "It's a Draw!"
 
-2) I also want to enhance the game so that users accessing the game can play against the computer, and to keep track of the wins by storing the win tally in another object visible on the screen. When "Play Again!" is selected this tally of wins will not reset, and instead I can add a new reset button, so the reset button can set the overall tally of wins back to 0 as well when a user would like to start their series of games over
+2) I also want to enhance the game so that users accessing the game can play against the computer, and to keep track of the wins by storing the win tally in another object visible on the screen. When "Play Again!" is selected this tally of wins will not reset, and instead I can add a new reset button, so the reset button can set the overall tally of wins back to 0 as well when a user would like to start their series of games over.
 
