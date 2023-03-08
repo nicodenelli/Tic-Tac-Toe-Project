@@ -1,0 +1,84 @@
+:root {
+    --boardBackground: rgb(59, 58, 58);
+    --winningCombo: rgb(238, 11, 140);
+    --blueshock: rgb(7, 227, 243);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--blueshock);
+}
+
+h1 {
+    position: absolute;
+    top: 15%;
+    text-transform: uppercase;
+    font-size: x-large;
+    font-family: Chalkduster, fantasy;
+}
+
+#board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+    margin-top: 40px;
+}
+
+.vessel {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--boardBackground);
+    padding: 50px;
+}
+
+.square {
+    display: flex;
+    align-items: center;       /* set item(x or o) to be in the center of the space it is in */
+    justify-content: center;
+    color: var(--blueshock);
+    border-right: 2px solid; /* setting a border to make the board itself */
+    border-bottom: 2px solid;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-family: Optima, sans-serif;
+}
+
+.square:nth-child(3n) {  /* using this selector and the next selector - .square:nth-child(6) ~ .square
+    to remove the border that surrounds the right, and bottom of the board 3n counts 1, 2, 3 spaces over
+    and removes the border. The 6 will count up to six spaces and then the following spaces 7, 8,
+    and 9 it will remove the border-bottom as specified in those spaces*/
+    border-right: none;
+}
+
+.square:nth-child(6) ~ .square {
+    border-bottom: none;
+}
+
+button {
+    color: var(--winningCombo);
+    background-color:  var(--blueshock);
+    border-radius: 10px;
+    border: none;
+    position: absolute;
+    bottom: 10%;
+    padding: 5px 5px;
+    box-shadow: 0px 0px 2px 2px var(--blueshock);
+    font-family: Chalkduster, fantasy;
+}
+
+button:hover {
+    box-shadow: 0px 0px 2px 2px var(--winningCombo);
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: .7s;
+}
+
