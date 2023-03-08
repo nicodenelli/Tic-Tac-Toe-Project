@@ -15,7 +15,7 @@ let boxes = Array(9).fill(null)
 
 //==========================================================================================
 
-const launchGame = () => {
+const launchGame = () => { //the game will begin once player one clicks a space for their O
     squares.forEach(square => square.addEventListener('click', spaceClicked));
 }
 
