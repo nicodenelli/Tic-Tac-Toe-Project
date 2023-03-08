@@ -75,7 +75,7 @@ const winnerVariations = [
     [0, 4, 8]
 ]
 // Since the above variable is an array of arrays I can use a for loop to loop over 
-// winnerVariations to determine of there is a winner.
+// winnerVariations to determine if there is a winner.
 
 function theWinner() {
     for (const condition of winnerVariations) { // <- (const iterator of object)
