@@ -95,7 +95,7 @@ return [x, o, t] // <- returning the winner variation
     // then return false which will result also in a tie
 }
 
-resetButton.addEventListener('click', resetBoard);
+resetButton.addEventListener('click', resetBoard)
 
 function resetBoard() {
     boxes.fill(null) // <- this will override my spaces array now containing items and
