@@ -1,5 +1,6 @@
 // Base Variables
-let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');
+let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');//<- one of my
+//favorite lines of code in my project
 let titleDisplay = document.getElementById('titleDisplay');
 let resetButton = document.getElementById('resetButton');
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
@@ -16,7 +17,8 @@ let boxes = Array(9).fill(null)
 //==========================================================================================
 
 function launchGame() { //the game will begin once player one clicks a space for their O
-    squares.forEach(square => square.addEventListener('click', spaceClicked));
+    squares.forEach(square => square.addEventListener('click', spaceClicked));//<- one of my
+    //favorite lines of code in my project
 }
 
 //Box clicked function below
@@ -97,7 +99,8 @@ return [x, o, t] // <- returning the winner variation
 
 resetButton.addEventListener('click', resetBoard);
 
-function resetBoard() {
+function resetBoard() {// <-favorite function, succesfully clears board back to original state and changes title
+    // back to it's original state
     boxes.fill(null) // <- this will override my spaces array now containing items and
     // fill the array with "null" items as it was in the beginning of the game
     squares.forEach(square => {
