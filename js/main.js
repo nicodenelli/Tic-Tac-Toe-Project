@@ -97,7 +97,7 @@ return [x, o, t] // <- returning the winner variation
     // then return false which will result also in a tie
 }
 
-resetButton.addEventListener('click', resetBoard);
+resetButton.addEventListener('click', resetBoard)
 
 function resetBoard() {// <-favorite function, succesfully clears board back to original state and changes title
     // back to it's original state
