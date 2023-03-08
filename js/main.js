@@ -105,7 +105,7 @@ function resetBoard() {
         // the highlighted squares need to be removed when I click the "Play Again!" button
         square.style.backgroundColor = "";
     })
-    titleDisplay.innerHTML = "tic tac toe beta"; // <- changes the text at the top from displaying
+    titleDisplay.innerHTML = "tic tac toe"; // <- changes the text at the top from displaying
 // the winner back to it's original title
 
     activePlayer = playerO;
