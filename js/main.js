@@ -31,6 +31,27 @@ const id = event.target.id //<- applying the event listener
 if(!boxes[id]) { // <- id from my html - checking to make sure the box selected does not contain this id
     boxes[id] =  activePlayer;
     event.target.innerText =  activePlayer;
+
+    if(theWinner()){
+        titleDisplay.innerHTML = `Player ${activePlayer} wins!`
+        let winningCombo = theWinner() // <- this new variable will equal the winning array
+    //that was returned in theWinner() function
+    // console.log(winningCombo) - can see when placing an X in one of the winnerVariations
+    // like 0, 1, 2 or 2, 5, 8 that one of the winningVariations is returned, now I need 
+    // to use map so that at position squares[square]or at (square 0,1)(square 0,2)(square 0,3)
+    // to add the highlightWinner value which is a style so the winning variation will
+    // be highlighted when a player has won. Depending on if user x or o has won I need to 
+    // return that so I can physically see the highlighted change
+
+    winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
+    return
+    }
+
+    // if ->
+    activePlayer = activePlayer == playerO ? playerX : playerO; //<- if activePlayer is equal to 
+    // variable activePlayer that is equal to playerO then change it to playerX else change it 
+    // to playerO. Essentially this allows the game to switch between O and X each time an O or 
+    // an X is placed on the board
+    }
 }
 
-}
