@@ -3,7 +3,7 @@ Tic Tac Toe is a game in which two players seek in alternate turns to complete a
 ## Technologies used
 HTML, CSS, JAVASCRIPT, Visual Studio Code, and used my mac laptop to access and use these technologies.
 ## Getting Started
-1) Highlight, copy, and paste this link to get to the game board (highlight from file all the way through index.html) -> file:///Users/nickmorganelli/code/project-1/index.html
+1) Highlight, copy, and paste this link to get to the game board (highlight from file all the way through index.html) -> https://nicodenelli.github.io/Tic-Tac-Toe-Project/
 
 2) Once the gameboard is loaded, players must decide who will go first, player-1 will always be "O" and player-2 will always be "X"
 
