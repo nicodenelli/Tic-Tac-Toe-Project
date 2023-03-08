@@ -4,8 +4,8 @@ let squares = Array.from(document.getElementsByClassName('square')); // to preve
 // listener to each square I will use the array like function to turn this line into an array
 let titleDisplay = document.getElementById('titleDisplay');
 let resetButton = document.getElementById('resetButton');
-const playerO = "O";
 const playerX = "X";
+const playerO = "O";
 let activePlayer = playerO;
 // If a user clicks one of the spaces to place their item 'x' or 'o' that space should now be 
 // unable to be filled with another item as someone has already played that space
