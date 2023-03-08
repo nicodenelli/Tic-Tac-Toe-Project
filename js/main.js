@@ -32,8 +32,10 @@ if(!boxes[id]) { // <- id from my html - checking to make sure the box selected 
     boxes[id] =  activePlayer;
     event.target.innerText =  activePlayer;
 
-    if(theWinner()){
-        titleDisplay.innerHTML = `Player ${activePlayer} wins!`
+    if(theWinner() !== false){//<- if the below theWinner function does not return false then 
+        // the result is a win
+        titleDisplay.innerHTML = `Player ${activePlayer} wins!`//<-this will also need to reset 
+    // when the reset button is clicked - BE SURE TO ADD THIS TO RESET FUNCTION
         let winningCombo = theWinner() // <- this new variable will equal the winning array
     //that was returned in theWinner() function
     // console.log(winningCombo) - can see when placing an X in one of the winnerVariations
@@ -55,3 +57,60 @@ if(!boxes[id]) { // <- id from my html - checking to make sure the box selected 
     }
 }
 
+// In order for the computer to recognize when a win has occured (3 of the same character)
+// in a row. I need to tell the computer which varialtions to look for when determining a winner
+//board index
+// 0 | 1 | 2
+// 3 | 4 | 5
+// 6 | 7 | 8
+
+const winnerVariations = [
+[0, 1, 2],
+[3, 4, 5],
+[6, 7, 8],
+[0, 3, 6],
+[1, 4, 7],
+[2, 5, 8],
+[2, 4, 6],
+[0, 4, 8]
+]
+// Since the above variable is an array of arrays I can use a for loop to loop over 
+// winnerVariations to determine of there is a winner.
+
+function theWinner() {
+    for (const condition of winnerVariations) { // <- (const iterator of object)
+        let [x, o, t] = condition; // <- storing the values from the winnerVariations
+        // array inside x, o, and t and the numbers will not need to be in order
+// 0, 1, 2 is the same as 2, 1, 0 and 1, 2, 0 etc...
+if (boxes[x] && (boxes[x] == boxes[o] && boxes[x] == boxes[t])) {//<- if the value of the boxes array at location x on the board [a]
+    // is equal to the value of the box located at position o are the same, this will produce a win. 
+    // The value of the boxes being x or o, so if an x is at position x, and x is at position o the
+    // expression will continue to check if position t has the value of x to determine a win
+    // if not all 3 values are the same, it will result in a false statement, and there will be no winner
+    // until one of the above variation "conditions" have been met
+
+    return [x, o, t]// <- returning the winner variation
+}
+    }
+    return false //<- if none of the variations from my winnerVariations array have occured
+    // then return false which will result also in a tie
+}
+
+resetButton.addEventListener('click', resetBoard);
+
+function resetBoard() {
+    boxes.gill(null) // <- this will override my spaces array now containing items and
+    // fill the array with "null" items as it was in the beginning of the game
+    squares.forEach(square => {
+        square.innerText = ""; // <- remove the x's and o's displayed on my board
+        // the highlighted squares need to be removed when I click the "Play Again!" button
+        square.style.backgroundColor = "";
+    })
+    titleDisplay.innerHTML = "tic tac toe beta"; // <- changes the text at the top from displaying
+// the winner back to it's original title
+
+    activePlayer = playerO;
+}
+
+launchGame()
+}
