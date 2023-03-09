@@ -109,7 +109,7 @@ function resetBoard() {// <-favorite function, succesfully clears board back to 
     squares.forEach(square => {
         square.innerText = ""; // <- remove the x's and o's displayed on my board
         // the highlighted squares need to be removed when I click the "Play Again!" button
-        square.style.backgroundColor = "";
+        square.style.backgroundColor = "";//<- sets the background color of the winning squares back to nothing
     })
     titleDisplay.innerHTML = "tic tac toe!"; // <- changes the text at the top from displaying
 // the winner back to it's original title
