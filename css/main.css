@@ -12,9 +12,17 @@
 
 h1 {
     position: absolute;
-    top: 15%;
+    top: 10%;
     text-transform: uppercase;
     font-size: x-large;
+    font-family: Chalkduster, fantasy;
+}
+
+h2 {
+    position: absolute;
+    top: 15%;
+    text-transform: uppercase;
+    font-size: large;
     font-family: Chalkduster, fantasy;
 }
 

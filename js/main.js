@@ -2,6 +2,7 @@
 let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');//<- one of my
 //favorite lines of code in my project
 let titleDisplay = document.getElementById('titleDisplay');
+let winnerDisplay = document.getElementById('winnerDisplay');
 let resetButton = document.getElementById('resetButton');
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
 // listener to each square I will use the "array like function" to turn this line into an array
@@ -35,7 +36,7 @@ function spaceClicked(event) { // <- upon start of the game I want to add an eve
 
 if(theWinner() !== false){ //<- if the below theWinner function does not return false then 
     // the result is a win
-    titleDisplay.innerHTML = `Player ${activePlayer} wins!` // <-this will also need to reset when
+    winnerDisplay.innerHTML = `Player ${activePlayer} wins!` // <-this will also need to reset when
     // the reset button is clicked - BE SURE TO ADD THIS TO RESET FUNCTION
     let winningCombo = theWinner() //<- this new variable will equal the winning array
     // that was returned in theWinner() function
@@ -111,8 +112,8 @@ function resetBoard() {// <-favorite function, succesfully clears board back to 
         // the highlighted squares need to be removed when I click the "Play Again!" button
         square.style.backgroundColor = "";//<- sets the background color of the winning squares back to nothing
     })
-    titleDisplay.innerHTML = "tic tac toe!"; // <- changes the text at the top from displaying
-// the winner back to it's original title
+    winnerDisplay.innerHTML = ""; // <- changes the text at the top from displaying
+// the winner back to nothing, just displaying the board, the title, and the play again button
 
     activePlayer = playerO;
 }
