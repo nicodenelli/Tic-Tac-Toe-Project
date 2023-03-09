@@ -44,8 +44,8 @@ h1 {
     align-items: center;       /* set item(x or o) to be in the center of the space it is in */
     justify-content: center;
     color: var(--blueshock);
-    border-right: 2px solid; /* setting a border to make the board itself */
-    border-bottom: 2px solid;
+    border-right: 5px solid; /* setting a border to make the board itself */
+    border-bottom: 5px solid;
     width: 150px;
     height: 150px;
     font-size: 120px;
