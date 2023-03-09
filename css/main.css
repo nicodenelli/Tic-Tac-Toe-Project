@@ -19,6 +19,9 @@ h1 {
 }
 
 h2 {
+    color:  var(--winningCombo);
+    background-color:  var(--blueshock);
+    border-radius: 10px;
     position: absolute;
     top: 15%;
     text-transform: uppercase;
