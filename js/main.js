@@ -4,7 +4,7 @@ let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winnin
 let titleDisplay = document.getElementById('titleDisplay');
 let resetButton = document.getElementById('resetButton');
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
-// listener to each square I will use the array like function to turn this line into an array
+// listener to each square I will use the "array like function" to turn this line into an array
 const playerX = "X";
 const playerO = "O";
 let activePlayer = playerO;
