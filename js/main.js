@@ -1,3 +1,4 @@
+console.log()
 // Base Variables
 let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');//<- one of my
 //favorite lines of code in my project
