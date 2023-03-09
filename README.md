@@ -11,6 +11,7 @@ HTML, CSS, JAVASCRIPT, Visual Studio Code, and used my mac laptop to access and 
 
 4) If the gameboard is filled with characters and neither player has won the title will remain unchanged and the option to reset the gameboard will be available in a button below the board labeled "PLay Again!"
 ## Screenshots
+<img src="" alt="Wireframe" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 ## Next Steps
 1) I want to add functionality to the title, to change it's display in the case of a tie as I do this for when there is a win, something simple like "It's a Draw!"
