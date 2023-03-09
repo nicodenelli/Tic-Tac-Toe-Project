@@ -1,8 +1,7 @@
 // Base Variables
 let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');//<- one of my
 //favorite lines of code in my project
-let titleDisplay = document.getElementById('titleDisplay');
-let winnerDisplay = document.getElementById('winnerDisplay');
+let winnerDisplay = document.getElementById('winnerDisplay'); //<- displays winner to board
 let resetButton = document.getElementById('resetButton');
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
 // listener to each square I will use the "array like function" to turn this line into an array
