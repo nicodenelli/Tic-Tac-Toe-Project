@@ -47,7 +47,10 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
     // return that so I can physically see the highlighted change
 
     winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
-    return
+    return // mapping over the squares array and applying background color to the winning
+    // combo, since I have winning combo= theWinner, once a win occurs, the three values
+    // that show when console.logging the winningCombo will now be highlighted as I have attached
+    // my highlightWinner variable to this map function.
 }
 
 //   if ->
