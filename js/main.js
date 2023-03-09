@@ -24,7 +24,7 @@ function launchGame() { //the game will begin once player one clicks a space for
 //Box clicked function below
 function spaceClicked(event) { // <- upon start of the game I want to add an event listener
     // for each square in my boxes array
-     // <- console.log(event.target) <- current event.target to check - when checking this I 
+     // console.log(event.target) <- current event.target to check - when checking this I 
      // can see in the console online that when selecting a square the value it reveals is
      // the coontainer class I created with an id of it's position in the array
     const id = event.target.id //<- applying event listener
