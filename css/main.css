@@ -63,12 +63,13 @@ body {
     font-family: Optima, sans-serif;
 }
 
-.square:nth-child(3n) {  /* using this selector and the next selector - .square:nth-child(6) ~ .square
+  .square:nth-child(3n) {  /* using this selector and the next selector - .square:nth-child(6) ~ .square
     to remove the border that surrounds the right, and bottom of the board 3n counts 1, 2, 3 spaces over
     and removes the border. The 6 will count up to six spaces and then the following spaces 7, 8,
     and 9 it will remove the border-bottom as specified in those spaces*/
     border-right: none;
-}
+} 
+
 
 .square:nth-child(6) ~ .square {
     border-bottom: none;

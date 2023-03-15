@@ -12,7 +12,7 @@ let activePlayer = playerO;
 // unable to be filled with another item as someone has already played that space
 let boxes = Array(9).fill(null)
 // until an item is now placed in one of these squares the space will already be filled with
-// "null" now all spaces are technically full and will be until the game is completed
+// "null". if there is text there, the pointer changes, if null can place a value
 
 //==========================================================================================
 
