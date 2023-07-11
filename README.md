@@ -22,10 +22,9 @@ Gameboard-Win
 
 
 ## Next Steps
-1) I want to add functionality to the title, to change it's display in the case of a tie as I do this for when there is a win, something simple like "It's a Draw!"
 
-2) I also want to enhance the game so that users accessing the game can play against the computer, and to keep track of the wins by storing the win tally in another object visible on the screen. When "Play Again!" is selected this tally of wins will not reset, and instead I can add a new reset button, so the reset button can set the overall tally of wins back to 0 as well when a user would like to start their series of games over.
+1) I also want to enhance the game so that users accessing the game can play against the computer, and to keep track of the wins by storing the win tally in another object visible on the screen. When "Play Again!" is selected this tally of wins will not reset, and instead I can add a new reset button, so the reset button can set the overall tally of wins back to 0 as well when a user would like to start their series of games over.
 
-3) Currently the game allows whoever the winner is to keep placing their piece on the board until the entire board is full of X or O values, I would like to make it so once a win is established that the game ends and the only action that can be taken after that point is to restart the game.
+2) Currently the game allows whoever the winner is to keep placing their piece on the board until the entire board is full of X or O values, I would like to make it so once a win is established that the game ends and the only action that can be taken after that point is to restart the game.
 Test
 
