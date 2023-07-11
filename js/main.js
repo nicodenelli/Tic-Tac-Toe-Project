@@ -21,6 +21,16 @@ function launchGame() { //the game will begin once player one clicks a space for
     //favorite lines of code in my project
 }
 
+function isBoardFull() {
+    // Check if all spaces on the board are filled
+    for (let box of boxes) {
+        if (!box) {
+            return false;
+        }
+    }
+    return true;
+}
+
 //Box clicked function below
 function spaceClicked(event) { // <- upon start of the game I want to add an event listener
     // for each square in my boxes array
@@ -47,10 +57,13 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
     // return that so I can physically see the highlighted change
 
     winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
-    return // mapping over the squares array and applying background color to the winning
+    return;// mapping over the squares array and applying background color to the winning
     // combo, since I have winning combo= theWinner, once a win occurs, the three values
     // that show when console.logging the winningCombo will now be highlighted as I have attached
     // my highlightWinner variable to this map function.
+} else if (isBoardFull()) {
+    winnerDisplay.innerHTML = "It's a Draw!";
+    return;
 }
 
 //   if ->
