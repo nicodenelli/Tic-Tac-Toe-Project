@@ -3,7 +3,7 @@ let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winnin
 //favorite lines of code in my project
 let winnerDisplay = document.getElementById('winnerDisplay'); //<- displays winner to board
 let resetButton = document.getElementById('resetButton');
-let gameEnded = false;
+let gameEnded = false; // this will be used so that no further moves can be made after the winner is established
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
 // listener to each square I will use the "array like function" to turn this line into an array
 const playerX = "X";
@@ -39,7 +39,8 @@ function spaceClicked(event) { // <- upon start of the game I want to add an eve
      // can see in the console online that when selecting a square the value it reveals is
      // the coontainer class I created with an id of it's position in the array
     if (gameEnded) {
-        return; // Exit the function if the game has ended
+        return; // Exit the function if the game has ended, this will make it so no other moves other than
+        // selecting the play agin button may be made
     }
 
     const id = event.target.id //<- applying event listener
@@ -62,7 +63,7 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
     // return that so I can physically see the highlighted change
 
     winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
-    gameEnded = true;
+    gameEnded = true; // game has ended is true, no further moves other than restting the board may be made
     return;// mapping over the squares array and applying background color to the winning
     // combo, since I have winning combo= theWinner, once a win occurs, the three values
     // that show when console.logging the winningCombo will now be highlighted as I have attached
