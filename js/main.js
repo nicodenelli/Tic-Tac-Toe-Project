@@ -14,6 +14,9 @@ let activePlayer = playerO;
 let boxes = Array(9).fill(null)
 // until an item is now placed in one of these squares the space will already be filled with
 // "null". if there is text there, the pointer changes, if null can place a value
+let winTallyX = 0;
+let winTallyO = 0;
+let overallResetButton = document.getElementById('overallResetButton');
 
 //==========================================================================================
 
@@ -64,6 +67,14 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
 
     winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
     gameEnded = true; // game has ended is true, no further moves other than restting the board may be made
+    
+    if (activePlayer === 'X') {
+        winTallyX++; // Increment Player X's win tally
+        document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
+    } else {
+        winTallyO++; // Increment Player O's win tally
+        document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
+    }
     return;// mapping over the squares array and applying background color to the winning
     // combo, since I have winning combo= theWinner, once a win occurs, the three values
     // that show when console.logging the winningCombo will now be highlighted as I have attached
@@ -138,6 +149,16 @@ function resetBoard() {// <-favorite function, succesfully clears board back to 
     activePlayer = playerO;
     gameEnded = false;
 }
+
+overallResetButton.addEventListener('click', resetOverallTally);
+
+function resetOverallTally() {
+    winTallyX = 0; // Reset Player X's win tally
+    winTallyO = 0; // Reset Player O's win tally
+    document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
+    document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
+}
+
 
 launchGame()
 
