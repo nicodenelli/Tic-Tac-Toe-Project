@@ -3,6 +3,7 @@ let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winnin
 //favorite lines of code in my project
 let winnerDisplay = document.getElementById('winnerDisplay'); //<- displays winner to board
 let resetButton = document.getElementById('resetButton');
+let gameEnded = false;
 let squares = Array.from(document.getElementsByClassName('square')); // to prevent having to add an event
 // listener to each square I will use the "array like function" to turn this line into an array
 const playerX = "X";
@@ -37,6 +38,10 @@ function spaceClicked(event) { // <- upon start of the game I want to add an eve
      // console.log(event.target) <- current event.target to check - when checking this I 
      // can see in the console online that when selecting a square the value it reveals is
      // the coontainer class I created with an id of it's position in the array
+    if (gameEnded) {
+        return; // Exit the function if the game has ended
+    }
+
     const id = event.target.id //<- applying event listener
     if(!boxes[id]) { //<- id from my html, checking to make sure the box selected does not contain
         // this id
@@ -57,12 +62,14 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
     // return that so I can physically see the highlighted change
 
     winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner)
+    gameEnded = true;
     return;// mapping over the squares array and applying background color to the winning
     // combo, since I have winning combo= theWinner, once a win occurs, the three values
     // that show when console.logging the winningCombo will now be highlighted as I have attached
     // my highlightWinner variable to this map function.
 } else if (isBoardFull()) {
     winnerDisplay.innerHTML = "It's a Draw!";
+    gameEnded = true;
     return;
 }
 
@@ -113,7 +120,7 @@ return [x, o, t] // <- returning the winner variation
     // then return false which will result also in a tie
 }
 
-resetButton.addEventListener('click', resetBoard)
+resetButton.addEventListener('click', resetBoard);
 
 function resetBoard() {// <-favorite function, succesfully clears board back to original state and changes title
     // back to it's original state
@@ -128,6 +135,7 @@ function resetBoard() {// <-favorite function, succesfully clears board back to 
 // the winner back to nothing, just displaying the board, the title, and the play again button
 
     activePlayer = playerO;
+    gameEnded = false;
 }
 
 launchGame()
