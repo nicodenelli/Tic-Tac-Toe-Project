@@ -17,13 +17,34 @@ let boxes = Array(9).fill(null)
 let winTallyX = 0;
 let winTallyO = 0;
 let overallResetButton = document.getElementById('overallResetButton');
+let gameMode;
 
 //==========================================================================================
 
-function launchGame() { //the game will begin once player one clicks a space for their O
-    squares.forEach(square => square.addEventListener('click', spaceClicked));//<- one of my
-    //favorite lines of code in my project
+function launchGame() {
+    let twoPlayerButton = document.getElementById('twoPlayerButton');
+    twoPlayerButton.addEventListener('click', () => {
+        gameMode = 'twoPlayer';
+        resetBoard();
+        squares.forEach(square => square.addEventListener('click', spaceClicked));
+        twoPlayerButton.style.display = 'none';
+        onePlayerButton.style.display = 'none';
+    });
+
+    let onePlayerButton = document.getElementById('onePlayerButton');
+    onePlayerButton.addEventListener('click', () => {
+        gameMode = 'onePlayer';
+        resetBoard();
+        squares.forEach(square => square.addEventListener('click', spaceClicked));
+        onePlayerButton.style.display = 'none';
+        twoPlayerButton.style.display = 'none';
+        if (activePlayer === playerX) {
+            makeComputerMove();
+        }
+    });
 }
+
+    
 
 function isBoardFull() {
     // Check if all spaces on the board are filled
@@ -34,6 +55,24 @@ function isBoardFull() {
     }
     return true;
 }
+
+function updateWinTally() {
+    if (theWinner() === playerX) {
+        winnerDisplay.innerHTML = `Player ${playerX} wins!`;
+        gameEnded = true;
+        winTallyX++; // Increment Player X's win tally
+        document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
+    } else if (theWinner() === playerO) {
+        winnerDisplay.innerHTML = `Player ${playerO} wins!`;
+        gameEnded = true;
+        winTallyO++; // Increment Player O's win tally
+        document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
+    } else if (isBoardFull()) {
+        winnerDisplay.innerHTML = "It's a Draw!";
+        gameEnded = true;
+    }
+}
+
 
 //Box clicked function below
 function spaceClicked(event) { // <- upon start of the game I want to add an event listener
@@ -89,7 +128,43 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
 activePlayer = activePlayer == playerO ? playerX : playerO; //<- if activePlayer is equal to variable activePlayer
 // that is equal to playerO then change it to playerX else change it to playerO. Essentially
 // this allows the game to switch between O and X each time an O or an X is placed on the board
+if (gameMode === 'onePlayer' && activePlayer === playerX) {
+    makeComputerMove();
 }
+}
+}
+
+function makeComputerMove() {
+    
+    let emptyIndexes = [];
+    for (let i = 0; i < boxes.length; i++) {
+        if (!boxes[i]) {
+            emptyIndexes.push(i);
+        }
+    }
+
+    let randomIndex = Math.floor(Math.random() * emptyIndexes.length);
+    let computerMove = emptyIndexes[randomIndex];
+
+    setTimeout(() => {
+        boxes[computerMove] = playerX;
+        squares[computerMove].innerText = playerX;
+
+        if (theWinner() !== false) {
+            winnerDisplay.innerHTML = `Player ${playerX} wins!`;
+            let winningCombo = theWinner();
+            winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner);
+            gameEnded = true;
+            updateWinTally();
+            return;
+        } else if (isBoardFull()) {
+            winnerDisplay.innerHTML = "It's a Draw!";
+            gameEnded = true;
+            return;
+        }
+
+        activePlayer = playerO;
+    }, 500);
 }
 
 // In order for the computer to recognize when a win has occured (3 of the same character)
@@ -148,6 +223,9 @@ function resetBoard() {// <-favorite function, succesfully clears board back to 
 
     activePlayer = playerO;
     gameEnded = false;
+    document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
+    document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
+
 }
 
 overallResetButton.addEventListener('click', resetOverallTally);
@@ -155,6 +233,21 @@ overallResetButton.addEventListener('click', resetOverallTally);
 function resetOverallTally() {
     winTallyX = 0; // Reset Player X's win tally
     winTallyO = 0; // Reset Player O's win tally
+    document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
+    document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
+}
+
+let refreshButton = document.getElementById('refreshButton');
+refreshButton.addEventListener('click', refreshGame);
+
+function refreshGame() {
+    // Reset all variables and win tallies to their original state
+    gameMode = undefined;
+    winTallyX = 0;
+    winTallyO = 0;
+    resetBoard();
+    twoPlayerButton.style.display = 'block'; // Show the game mode selection buttons again
+    onePlayerButton.style.display = 'block';
     document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
     document.getElementById('winTallyO').innerHTML = `Player O Wins: ${winTallyO}`;
 }
