@@ -151,15 +151,22 @@ function makeComputerMove() {
         squares[computerMove].innerText = playerX;
 
         if (theWinner() !== false) {
-            winnerDisplay.innerHTML = `Player ${playerX} wins!`;
             let winningCombo = theWinner();
-            winningCombo.map(square => squares[square].style.backgroundColor = highlightWinner);
+            winnerDisplay.innerHTML = `Player ${playerX} wins!`;
+            winningCombo.forEach(squareIndex => {
+                squares[squareIndex].style.backgroundColor = highlightWinner;
+            });
             gameEnded = true;
-            updateWinTally();
+            updateWinTally(playerX); // Update the win tally for Player X
+            console.log("Player X wins!");
+            console.log(`winTallyX: ${winTallyX}`);
             return;
         } else if (isBoardFull()) {
             winnerDisplay.innerHTML = "It's a Draw!";
             gameEnded = true;
+            updateWinTally('draw'); // Update the win tally for a draw
+            console.log("It's a Draw!");
+            console.log(`winTallyX: ${winTallyX}`);
             return;
         }
 
