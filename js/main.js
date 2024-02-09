@@ -1,6 +1,5 @@
 // Base Variables
-let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');//<- one of my
-//favorite lines of code in my project
+let highlightWinner = getComputedStyle(document.body).getPropertyValue('--winningCombo');
 let winnerDisplay = document.getElementById('winnerDisplay'); //<- displays winner to board
 let resetButton = document.getElementById('resetButton');
 let gameEnded = false; // this will be used so that no further moves can be made after the winner is established
