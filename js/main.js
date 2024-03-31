@@ -134,7 +134,6 @@ if (gameMode === 'onePlayer' && activePlayer === playerX) {
 }
 
 function makeComputerMove() {
-    
     let emptyIndexes = [];
     for (let i = 0; i < boxes.length; i++) {
         if (!boxes[i]) {
@@ -156,16 +155,15 @@ function makeComputerMove() {
                 squares[squareIndex].style.backgroundColor = highlightWinner;
             });
             gameEnded = true;
-            updateWinTally(playerX); // Update the win tally for Player X
-            console.log("Player X wins!");
-            console.log(`winTallyX: ${winTallyX}`);
+            // Update the win tally for Player X (the CPU)
+            winTallyX++;
+            document.getElementById('winTallyX').innerHTML = `Player X Wins: ${winTallyX}`;
             return;
         } else if (isBoardFull()) {
             winnerDisplay.innerHTML = "It's a Draw!";
             gameEnded = true;
-            updateWinTally('draw'); // Update the win tally for a draw
-            console.log("It's a Draw!");
-            console.log(`winTallyX: ${winTallyX}`);
+            // Update the win tally for a draw (optional)
+            // updateWinTally('draw');
             return;
         }
 
