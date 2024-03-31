@@ -126,7 +126,7 @@ if(theWinner() !== false){ //<- if the below theWinner function does not return 
 //   if ->
 activePlayer = activePlayer == playerO ? playerX : playerO; //<- if activePlayer is equal to variable activePlayer
 // that is equal to playerO then change it to playerX else change it to playerO. Essentially
-// this allows the game to switch between O and X each time an O or an X is placed on the board
+// this allows the game to switch between O and X each time an O or an X is placed on the board.
 if (gameMode === 'onePlayer' && activePlayer === playerX) {
     makeComputerMove();
 }
