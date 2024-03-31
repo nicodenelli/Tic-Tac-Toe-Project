@@ -21,7 +21,4 @@ Gameboard-Win
 
 
 
-## Next Steps
-
-1) I have been trying to finalize the player vs cpu functionality but must be missing or overlooking something in my code. Currently the game does not keep a tally of the CPU's wins, only the players. Granted, the CPU difficulty is extremely low and this case should currently never occur, but if there were to be a difficulty setting later on, this would be an issue, as well as just the simple idea that everything is working as it should be
 
