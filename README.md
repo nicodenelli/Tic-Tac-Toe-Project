@@ -20,7 +20,7 @@ Gameboard-Win
 
 ## Next Steps
 
-1) I would like to create a game setting difficulty for when players are challenging the CPU, such as easy, medium, and hard
+1) I would like to create a game setting difficulty for when players are challenging the CPU, such as easy, medium, and hard.
 
 
 
